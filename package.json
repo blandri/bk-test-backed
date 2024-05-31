@@ -9,16 +9,16 @@
     "start": "tsc && node dist/index.js",
     "build": "tsc -p .",
     "test": "mocha ./tests/*.ts",
-    "lint": "eslint . --ext .ts",
-    "db:migrate": "cross-env NODE_OPTIONS='--require tsconfig-paths-bootstrap.js' sequelize db:migrate",
-    "db:seed": "cross-env NODE_OPTIONS='--require tsconfig-paths-bootstrap.js' sequelize db:seed:all"
+    "lint": "eslint . --ext .ts"
   },
   "author": "Landry",
   "license": "ISC",
   "devDependencies": {
     "@types/chai": "^4.3.16",
+    "@types/cors": "^2.8.17",
     "@types/dotenv": "^8.2.0",
     "@types/express": "^4.17.21",
+    "@types/express-form-data": "^2.0.5",
     "@types/mocha": "^10.0.6",
     "@types/node": "^20.12.12",
     "@types/npmlog": "^7.0.0",
