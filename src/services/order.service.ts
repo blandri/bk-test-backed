@@ -1,7 +1,7 @@
 import { CreateOrderDTO } from "../controllers/order.controller";
-import Order from "../models/order.model";
-import { Seed } from "../models/seed.model";
-import { Fertilizer } from "../models/fertilizer.model";
+import Order from "../models/order.model.js";
+import { Seed } from "../models/seed.model.js";
+import { Fertilizer } from "../models/fertilizer.model.js";
 
 interface OrderWithCount {
     rows: Order[];

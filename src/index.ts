@@ -3,8 +3,8 @@ import log from 'npmlog';
 import http from 'http';
 import cors from 'cors';
 import formData from 'express-form-data';
-import routes from './routes/index';
-import Database from './db/index'
+import routes from './routes/index.js';
+import Database from './db/index.js'
 
 const app: Express = express();
 const server = http.createServer(app);

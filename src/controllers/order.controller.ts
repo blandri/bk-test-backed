@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import OrderService from "../services/order.service";
+import OrderService from "../services/order.service.js";
 
 export interface CreateOrderDTO {
     customerNames: string,

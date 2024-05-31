@@ -1,8 +1,8 @@
 import { Sequelize } from "sequelize-typescript";
-import { config, dialect } from "../config/db.config";
-import Order from "../models/order.model";
-import { Fertilizer } from "../models/fertilizer.model";
-import { Seed } from "../models/seed.model";
+import { config, dialect } from "../config/db.config.js";
+import Order from "../models/order.model.js";
+import { Fertilizer } from "../models/fertilizer.model.js";
+import { Seed } from "../models/seed.model.js";
 
 class Database {
   public sequelize: Sequelize;

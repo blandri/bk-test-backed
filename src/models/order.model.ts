@@ -1,6 +1,6 @@
 import { Model, Table, Column, DataType, ForeignKey, BelongsTo } from "sequelize-typescript";
-import { Fertilizer } from "./fertilizer.model";
-import { Seed } from "./seed.model";
+import { Fertilizer } from "./fertilizer.model.js";
+import { Seed } from "./seed.model.js";
 
 @Table({
   tableName: "orders",
