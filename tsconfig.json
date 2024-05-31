@@ -16,7 +16,7 @@
   "lib": [
     "es2022"
   ],
-  "include": ["*.ts", "src/**/*.ts", "tests/*.ts", "./**/*.ts"],
+  "include": ["*.ts", "src/**/*.ts"],
   "exclude": [
     "node_modules",
     "dist"
