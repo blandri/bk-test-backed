@@ -1,5 +1,5 @@
 import { Table, Column, Model, DataType, HasMany } from 'sequelize-typescript';
-import Order from './order.model';
+import Order from './order.model.js';
 
 @Table({
   tableName: 'seeds'

@@ -1,6 +1,6 @@
 import { CreateProductDTO } from "../controllers/product.controller";
-import { Fertilizer } from "../models/fertilizer.model";
-import { Seed } from "../models/seed.model";
+import { Fertilizer } from "../models/fertilizer.model.js";
+import { Seed } from "../models/seed.model.js";
 
 interface ProductServices {
     createFertilizer(fertilizer: CreateProductDTO): Promise<Fertilizer>;
