@@ -10,7 +10,7 @@ interface OrderWithCount {
 
 interface OrderServices {
   create(order: CreateOrderDTO): Promise<Order>;
-//   retrieveAll(offset: number, limit: number, filter: string): Promise<Order[]>;
+  retrieveAll(offset: number, limit: number): Promise<OrderWithCount>;
 //   retrieveById(orderId: number): Promise<Order | null>;
 //   update(order: CreateOrderDTO, orderId: number): Promise<number>;
 //   delete(farmerId: number): Promise<number>;
