@@ -15,4 +15,16 @@ product.post(
     await new ProductController().createSeed(req, res)
 });
 
+product.get(
+    '/seeds',
+    async (req: Request, res: Response) => {
+    await new ProductController().getSeeds(req, res)
+});
+
+product.get(
+    '/fertilizers',
+    async (req: Request, res: Response) => {
+    await new ProductController().getFertilizers(req, res)
+});
+
 export default product;

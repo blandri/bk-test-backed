@@ -30,6 +30,30 @@ class ProductService implements ProductServices {
       throw new Error("Failed to create seed!");
     }
   }
+
+  async retrieveAllSeeds(): Promise<any> {
+    try {
+      const seeds = await Seed.findAndCountAll({order: [['seedName', 'DESC']]})
+      return {
+      rows: seeds.rows,
+      count: seeds.count
+      }
+    } catch (err) {
+        throw new Error("Failed to retrieve seeds!");
+    }
+  }
+
+  async retrieveAllFertilizers(): Promise<any> {
+    try {
+      const fertilizers = await Fertilizer.findAndCountAll({order: [['fertilizerName', 'DESC']]})
+      return {
+      rows: fertilizers.rows,
+      count: fertilizers.count
+      }
+    } catch (err) {
+        throw new Error("Failed to retrieve fertilizers!");
+    }
+  }
 }
 
 export default ProductService;
