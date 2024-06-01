@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "nodemon --exec node --loader ts-node/esm src/index.ts",
     "start": "tsc && node dist/index.js",
-    "build": "tsc -p .",
+    "build": "npm install && tsc -p .",
     "test": "nyc --reporter=text --reporter=lcov mocha ./tests/*.ts",
     "lint": "eslint . --ext .ts"
   },
