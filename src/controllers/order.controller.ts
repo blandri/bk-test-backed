@@ -77,4 +77,20 @@ export default class OrderController {
             });
           }
     }
+
+    async rejectOrder(req: Request, res: Response) {
+      try {
+          const orderId = parseInt(req.params.id)
+          const order = await new OrderService().update({ rejected: true }, orderId)
+          return res.status(201).json({
+            message: 'Order rejected successfully',
+            data: order
+          });
+        } catch (error) {
+          return res.status(500).json({
+            message: 'Error occured while rejecting order!',
+            error: error.message
+          });
+        }
+  }
 }

@@ -1,6 +1,6 @@
 import { Model, Table, Column, DataType, ForeignKey, BelongsTo } from "sequelize-typescript";
-import { Fertilizer } from "./fertilizer.model.js";
 import { Seed } from "./seed.model.js";
+import { Fertilizer } from "./fertilizer.model.js";
 
 @Table({
   tableName: "orders",
@@ -57,6 +57,13 @@ export default class Order extends Model {
     defaultValue: false,
   })
   approved?: boolean;
+
+  @Column({
+    type: DataType.BOOLEAN,
+    field: "rejected",
+    defaultValue: false,
+  })
+  rejected?: boolean;
 
   @ForeignKey(() => Fertilizer)
 
