@@ -1,6 +1,5 @@
 import { Request, Response } from "express";
 import UserService from "../services/user.service.js";
-import { comparePassword, generateToken, hashPassword } from "../helpers/auth.helper.js";
 
 export interface CreateUserDTO {
     names: string,
@@ -11,12 +10,10 @@ export default class UserController {
     async createUser(req: Request, res: Response) {
         try {
             const {names, password} = req.body
-            const userDTO: CreateUserDTO = {names, password: hashPassword(password)};
+            const userDTO: CreateUserDTO = {names, password};
             const user = await new UserService().create(userDTO)
-            const token = generateToken({ userId: user.id }, '1d');
             return res.status(201).json({
-              message: 'User created successfully',
-              token
+              message: 'User created successfully'
             });
           } catch (error) {
             return res.status(500).json({
@@ -31,21 +28,10 @@ export default class UserController {
           const user = await new UserService().userLogin(req.body.names)
     
           if(user){
-            const validation = await comparePassword(
-              req.body.password,
-              user.password
-            );
+            const validation = req.body.password === user.password
             if (validation) {
-              const token = await generateToken(
-                {
-                  userId: user.id,
-                  name: user.names,
-                },
-                '1d'
-              );
-              return res.status(201).header('authenticate', token).json({
+              return res.status(201).json({
                 message: 'Logged in successfully',
-                token,
                 name: user.names,
               });
             }
