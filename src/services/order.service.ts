@@ -11,9 +11,8 @@ interface OrderWithCount {
 interface OrderServices {
   create(order: CreateOrderDTO): Promise<Order>;
   retrieveAll(offset: number, limit: number): Promise<OrderWithCount>;
-//   retrieveById(orderId: number): Promise<Order | null>;
-//   update(order: CreateOrderDTO, orderId: number): Promise<number>;
-//   delete(farmerId: number): Promise<number>;
+  update(order: CreateOrderDTO, orderId: number): Promise<any>;
+  deleteAll(): Promise<any>;
 }
 
 class OrderService implements OrderServices {
@@ -56,7 +55,7 @@ class OrderService implements OrderServices {
         const orders = await Order.findAndCountAll({
             offset: offset || 0,
             limit: limit || 5,
-            order: [['customerNames', 'DESC']],
+            order: [['customerNames', 'ASC']],
             include: [
                 {
                     model: Fertilizer,
@@ -70,11 +69,12 @@ class OrderService implements OrderServices {
                 }
             ],
         })
+
         return {
         rows: orders.rows,
         count: orders.count
         }
-    } catch (err) {
+    } catch (err) {console.log(err)
         throw new Error("Failed to retrieve Orders!");
     }
    }
@@ -88,7 +88,14 @@ class OrderService implements OrderServices {
 //     }
 //    }
 
-//   async delete(farmerId: number): Promise<number> { }
+  async deleteAll(): Promise<any> { 
+    try {
+        const result = await Order.drop()
+        return result
+    } catch (err) {
+        throw new Error("Failed to update Order!");
+    }
+  }
 }
 
 export default OrderService;
