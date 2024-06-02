@@ -1,5 +1,5 @@
 import { CreateUserDTO } from "../controllers/user.controller";
-import { User } from "../models/user.model";
+import { User } from "../models/user.model.js";
 
 interface UserServices {
   create(order: CreateUserDTO): Promise<User>;
