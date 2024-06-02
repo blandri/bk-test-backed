@@ -3,6 +3,7 @@ import { config, dialect } from "../config/db.config.js";
 import Order from "../models/order.model.js";
 import { Fertilizer } from "../models/fertilizer.model.js";
 import { Seed } from "../models/seed.model.js";
+import { User } from "../models/user.model.js";
 
 class Database {
   public sequelize: Sequelize;
@@ -24,7 +25,7 @@ class Database {
         acquire: config.pool.acquire,
         idle: config.pool.idle
       },
-      models: [Fertilizer, Order, Seed]
+      models: [Fertilizer, Order, Seed, User]
     });
 
     sequelize

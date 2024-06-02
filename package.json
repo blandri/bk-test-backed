@@ -45,11 +45,16 @@
     "typescript": "^5.4.5"
   },
   "dependencies": {
+    "@types/bcryptjs": "^2.4.6",
+    "@types/jsonwebtoken": "^9.0.6",
+    "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
     "dotenv": "^16.3.2",
     "express": "^4.18.2",
     "express-form-data": "^2.0.23",
     "http": "^0.0.1-security",
+    "joi": "^17.13.1",
+    "jsonwebtoken": "^9.0.2",
     "npmlog": "^7.0.1",
     "pg": "^8.11.5",
     "pg-hstore": "^2.3.4",
